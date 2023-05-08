@@ -1,0 +1,708 @@
+﻿<nav>
+
+    <div class="clearfix">
+        @*Anasayfa Linkimizi aşağıda oluşturup logo içerisine bastım*@
+
+        <a asp-controller="Home" asp-action="Anasayfa" class="logo"><img src="assets/images/logo.png" alt="" /></a>
+
+
+        <!-- ==========  Burası En Üstteki Navigation Tarafı Gerekli Bilgileri Güncelledim ========== -->
+
+        <div class="navigation navigation-pre clearfix">
+            <div class="row">
+                <div class="col-md-3">
+                    <a asp-controller="Admin" asp-action="AdminAnasayfa"> Admin</a>
+                </div>
+                <div class="col-md-3">
+                    <a href="#"><i class="icon icon-cart"></i> Kargo & Siparişler</a>
+                </div>
+                <div class="col-md-3">
+                    <a href="#"><i class="icon icon-cog"></i> Süper Fırsatlar</a>
+                </div>
+                <div class="col-md-3">
+                    @if (TempData["Hesabım"] == null)
+                    {
+                        <a asp-controller="Kullanici" asp-action="GirisYap"><i class="icon icon-map"></i> Giriş Yap</a>
+                    }
+                    @if (TempData["Hesabım"] != null)
+                    {
+
+                        <a asp-controller="Kullanici" asp-action="KullaniciBilgi"><i class="icon icon-map"></i> Hesabım</a>
+                    }
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ==========  Üst Navigation yeri burayı Tamamen Güncelleyip Sonrasında Linkleri vs Ekliyoruz========== -->
+
+        <div class="navigation navigation-top clearfix">
+            <ul>
+                @*Burada Anasayfayı linklendiriyoruz home kontrollerdan Anasayfa Action'nını tetikleyeceğini bildiriyoruzz*@
+                <li class="left-side"><a asp-controller="Home" asp-action="Anasayfa" class="logo-icon"><img src="#" alt="LuthFansHa " /></a></li>
+                <li class="left-side"><a href="#">Erkek</a></li>
+                <li class="left-side"><a href="#">Bayan</a></li>
+                <li class="left-side"><a href="#">Çocuk</a></li>
+                <li><a href="javascript:void(0);" class="open-login"><i class="icon icon-user"></i></a></li>
+                <li><a href="javascript:void(0);" class="open-search"><i class="icon icon-magnifier"></i></a></li>
+                <li><a href="javascript:void(0);" class="open-cart"><i class="icon icon-cart"></i> <span>4</span></a></li>
+            </ul>
+        </div>
+
+        <!-- ========== Burası Ana Navigasyon Bilgilerinin Olduğu Yer  ========== -->
+
+        <div class="navigation navigation-main">
+            <a href="#" class="open-login"><i class="icon icon-user"></i></a>
+            <a href="#" class="open-search"><i class="icon icon-magnifier"></i></a>
+            <a href="#" class="open-cart"><i class="icon icon-cart"></i> <span>4</span></a>
+            <a href="#" class="open-menu"><i class="icon icon-menu"></i></a>
+            <div class="floating-menu">
+                <!--mobile toggle menu trigger-->
+                <div class="close-menu-wrapper">
+                    <span class="close-menu"><i class="icon icon-cross"></i></span>
+                </div>
+                <ul>
+                    <li>
+                        <a href="#">Elektronik <span class="open-dropdown"><i class="fa fa-angle-down"></i></span></a>
+                        <div class="navbar-dropdown navbar-dropdown-single">
+                            <div class="navbar-box">
+                                <div class="box-full">
+                                    <div class="box clearfix">
+                                        <ul>
+                                            <li class="label">ANASAYFA</li>
+                                            <li><a href="index.html">Home - Slider</a></li>
+                                            <li><a href="index-2.html">Home - Tabsy</a></li>
+                                            <li><a href="index-3.html">Home intro</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">Moda<span class="open-dropdown"><i class="fa fa-angle-down"></i></span></a>
+                        <div class="navbar-dropdown navbar-dropdown-single">
+                            <div class="navbar-box">
+                                <div class="box-full">
+                                    <div class="box clearfix">
+                                        <ul>
+                                            <li class="label">Single dropdown</li>
+                                            <li><a href="about.html">About us</a></li>
+                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><a href="404.html">Not found 404</a></li>
+                                            <li><a href="login.html">Login & Register</a></li>
+                                            <li><a href="email-receipt.html">Email - Receipt template</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">Ev,Yaşam <span class="open-dropdown"><i class="fa fa-angle-down"></i></span></a>
+                        <div class="navbar-dropdown navbar-dropdown-single">
+                            <div class="navbar-box">
+                                <div class="box-full">
+                                    <div class="box clearfix">
+                                        <ul>
+                                            <li class="label">Product page</li>
+                                            <li><a href="category.html">Products categories</a></li>
+                                            <li><a href="products-grid.html">Products grid</a></li>
+                                            <li><a href="products-list.html">Products list</a></li>
+                                            <li><a href="products-grid-intro.html">Products grid intro</a></li>
+                                            <li><a href="products-topbar.html">Products topbar filter</a></li>
+                                            <li><a href="product.html">Product overview</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">Oto,Yapı Market <span class="open-dropdown"><i class="fa fa-angle-down"></i></span></a>
+                        <div class="navbar-dropdown navbar-dropdown-single">
+                            <div class="navbar-box">
+                                <div class="box-full">
+                                    <div class="box clearfix">
+                                        <ul>
+                                            <li class="label">Blog pages</li>
+                                            <li><a href="blog-grid.html">Blog grid</a></li>
+                                            <li><a href="blog-list.html">Blog list</a></li>
+                                            <li><a href="blog-grid-fullpage.html">Blog fullpage</a></li>
+                                            <li><a href="ideas.html">Blog ideas</a></li>
+                                            <li><a href="article.html">Article</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">Anne,Bebek <span class="open-dropdown"><i class="fa fa-angle-down"></i></span></a>
+                        <div class="navbar-dropdown">
+                            <div class="navbar-box">
+                                <div class="box-lg">
+                                    <div class="box clearfix">
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <ul>
+                                                    <li class="label"><i class="icon icon-star"></i> Washers & Dryers</li>
+                                                    <li><a href="#">Dishwashers</a></li>
+                                                    <li><a href="#">Ovens & Ranges</a></li>
+                                                    <li><a href="#">Irons & Ironing Boards</a></li>
+                                                    <li><a href="#">Heating & Cooling</a></li>
+                                                    <li class="more"><a href="#"><i class="icon icon-chevron-right"></i> More</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <ul>
+                                                    <li class="label"><i class="icon icon-star"></i> Kitchen Appliances</li>
+                                                    <li><a href="#">Coffee Makers</a></li>
+                                                    <li><a href="#">Microwaves</a></li>
+                                                    <li><a href="#">Blenders</a></li>
+                                                    <li><a href="#">Slow Cookers</a></li>
+                                                    <li class="more"><a href="#"><i class="icon icon-chevron-right"></i> More</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <ul>
+                                                    <li class="label"><i class="icon icon-star"></i> Freezers</li>
+                                                    <li><a href="#">Mini Freezers</a></li>
+                                                    <li><a href="#">Ice Makers</a></li>
+                                                    <li><a href="#">Chest Freezers</a></li>
+                                                    <li><a href="#">Upright Freezers</a></li>
+                                                    <li class="more"><a href="#"><i class="icon icon-chevron-right"></i> More</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <ul>
+                                                    <li class="label"><i class="icon icon-star"></i> TV & Video</li>
+                                                    <li><a href="#">TVs</a></li>
+                                                    <li><a href="#">DVD & Blu-ray Players</a></li>
+                                                    <li><a href="#">Home Audio & Theater</a></li>
+                                                    <li><a href="#">TVs Accessories</a></li>
+                                                    <li class="more"><a href="#"><i class="icon icon-chevron-right"></i> More</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <ul>
+                                                    <li class="label"><i class="icon icon-star"></i> Cell phones</li>
+                                                    <li><a href="#">Straight Talk Phones</a></li>
+                                                    <li><a href="#">Unlocked Phones</a></li>
+                                                    <li><a href="#">Contract Phones</a></li>
+                                                    <li><a href="#">No-Contract Phones</a></li>
+                                                    <li class="more"><a href="#"><i class="icon icon-chevron-right"></i> More</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <ul>
+                                                    <li class="label"><i class="icon icon-star"></i> iPad & Tablets</li>
+                                                    <li><a href="#">iPad</a></li>
+                                                    <li><a href="#">Windows Tablets</a></li>
+                                                    <li><a href="#">Android Tablets</a></li>
+                                                    <li><a href="#">Accessories</a></li>
+                                                    <li class="more"><a href="#"><i class="icon icon-chevron-right"></i> More</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <ul>
+                                                    <li class="label"><i class="icon icon-star"></i> Computers</li>
+                                                    <li><a href="#">Laptops</a></li>
+                                                    <li><a href="#">Desktops</a></li>
+                                                    <li><a href="#">PC Gaming</a></li>
+                                                    <li><a href="#">Printers & Supplies</a></li>
+                                                    <li class="more"><a href="#"><i class="icon icon-chevron-right"></i> More</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <ul>
+                                                    <li class="label"><i class="icon icon-star"></i> Floor Care</li>
+                                                    <li><a href="#">Upright Vacuums</a></li>
+                                                    <li><a href="#">Stick Vacuums</a></li>
+                                                    <li><a href="#">Robotic Vacuums</a></li>
+                                                    <li><a href="#">Handheld Vacuums</a></li>
+                                                    <li class="more"><a href="#"><i class="icon icon-chevron-right"></i> More</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <ul>
+                                                    <li class="label"><i class="icon icon-star"></i> Refrigerators</li>
+                                                    <li><a href="#">Mini Fridges</a></li>
+                                                    <li><a href="#">Kegerators</a></li>
+                                                    <li><a href="#">Beverage Refrigerators</a></li>
+                                                    <li><a href="#">Wine Refrigerators</a></li>
+                                                    <li class="more"><a href="#"><i class="icon icon-chevron-right"></i> More</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box-sm">
+                                    <div class="image">
+                                        <img src="assets/images/menu-item-1.jpg" alt="Alternate Text" />
+                                        <img src="assets/images/menu-item-2.jpg" alt="Alternate Text" />
+                                    </div>
+                                    <div class="box">
+                                        <div class="h2">Shop Electronics</div>
+                                        <div class="clearfix">
+                                            <p>Homes that differ in terms of style, concept and architectural solutions have been furnished by Furniture Factory. These spaces tell of an international lifestyle that expresses modernity, research and a creative spirit.</p>
+                                            <a class="btn btn-clean btn-big" href="products-grid.html">Shop now</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </li>
+
+
+                    <!-------SPOR OUTDOOR NAVBAR------->
+
+                    <li>
+                        <a href="index.html">Spor,Outdoor<span class="open-dropdown"><i class="fa fa-angle-down"></i></span></a>
+                        <div class="navbar-dropdown">
+                            <div class="navbar-box">
+                                <div class="box-lg">
+                                    <div class="box clearfix">
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <ul>
+                                                    <li class="label"><i class="icon icon-star"></i> Washers & Dryers</li>
+                                                    <li><a href="#">Dishwashers</a></li>
+                                                    <li><a href="#">Ovens & Ranges</a></li>
+                                                    <li><a href="#">Irons & Ironing Boards</a></li>
+                                                    <li><a href="#">Heating & Cooling</a></li>
+                                                    <li class="more"><a href="#"><i class="icon icon-chevron-right"></i> More</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <ul>
+                                                    <li class="label"><i class="icon icon-star"></i> Kitchen Appliances</li>
+                                                    <li><a href="#">Coffee Makers</a></li>
+                                                    <li><a href="#">Microwaves</a></li>
+                                                    <li><a href="#">Blenders</a></li>
+                                                    <li><a href="#">Slow Cookers</a></li>
+                                                    <li class="more"><a href="#"><i class="icon icon-chevron-right"></i> More</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <ul>
+                                                    <li class="label"><i class="icon icon-star"></i> Freezers</li>
+                                                    <li><a href="#">Mini Freezers</a></li>
+                                                    <li><a href="#">Ice Makers</a></li>
+                                                    <li><a href="#">Chest Freezers</a></li>
+                                                    <li><a href="#">Upright Freezers</a></li>
+                                                    <li class="more"><a href="#"><i class="icon icon-chevron-right"></i> More</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <ul>
+                                                    <li class="label"><i class="icon icon-star"></i> TV & Video</li>
+                                                    <li><a href="#">TVs</a></li>
+                                                    <li><a href="#">DVD & Blu-ray Players</a></li>
+                                                    <li><a href="#">Home Audio & Theater</a></li>
+                                                    <li><a href="#">TVs Accessories</a></li>
+                                                    <li class="more"><a href="#"><i class="icon icon-chevron-right"></i> More</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <ul>
+                                                    <li class="label"><i class="icon icon-star"></i> Cell phones</li>
+                                                    <li><a href="#">Straight Talk Phones</a></li>
+                                                    <li><a href="#">Unlocked Phones</a></li>
+                                                    <li><a href="#">Contract Phones</a></li>
+                                                    <li><a href="#">No-Contract Phones</a></li>
+                                                    <li class="more"><a href="#"><i class="icon icon-chevron-right"></i> More</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <ul>
+                                                    <li class="label"><i class="icon icon-star"></i> iPad & Tablets</li>
+                                                    <li><a href="#">iPad</a></li>
+                                                    <li><a href="#">Windows Tablets</a></li>
+                                                    <li><a href="#">Android Tablets</a></li>
+                                                    <li><a href="#">Accessories</a></li>
+                                                    <li class="more"><a href="#"><i class="icon icon-chevron-right"></i> More</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <ul>
+                                                    <li class="label"><i class="icon icon-star"></i> Computers</li>
+                                                    <li><a href="#">Laptops</a></li>
+                                                    <li><a href="#">Desktops</a></li>
+                                                    <li><a href="#">PC Gaming</a></li>
+                                                    <li><a href="#">Printers & Supplies</a></li>
+                                                    <li class="more"><a href="#"><i class="icon icon-chevron-right"></i> More</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <ul>
+                                                    <li class="label"><i class="icon icon-star"></i> Floor Care</li>
+                                                    <li><a href="#">Upright Vacuums</a></li>
+                                                    <li><a href="#">Stick Vacuums</a></li>
+                                                    <li><a href="#">Robotic Vacuums</a></li>
+                                                    <li><a href="#">Handheld Vacuums</a></li>
+                                                    <li class="more"><a href="#"><i class="icon icon-chevron-right"></i> More</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <ul>
+                                                    <li class="label"><i class="icon icon-star"></i> Refrigerators</li>
+                                                    <li><a href="#">Mini Fridges</a></li>
+                                                    <li><a href="#">Kegerators</a></li>
+                                                    <li><a href="#">Beverage Refrigerators</a></li>
+                                                    <li><a href="#">Wine Refrigerators</a></li>
+                                                    <li class="more"><a href="#"><i class="icon icon-chevron-right"></i> More</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box-sm">
+                                    <div class="image">
+                                        <img src="assets/images/menu-item-1.jpg" alt="Alternate Text" />
+                                        <img src="assets/images/menu-item-2.jpg" alt="Alternate Text" />
+                                    </div>
+                                    <div class="box">
+                                        <div class="h2">Shop Electronics</div>
+                                        <div class="clearfix">
+                                            <p>Homes that differ in terms of style, concept and architectural solutions have been furnished by Furniture Factory. These spaces tell of an international lifestyle that expresses modernity, research and a creative spirit.</p>
+                                            <a class="btn btn-clean btn-big" href="products-grid.html">Shop now</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </li>
+
+
+                    <!-------KOZMATİK NAVBAR------->
+                    <li>
+                        <a href="#">Kozmetik <span class="open-dropdown"><i class="fa fa-angle-down"></i></span></a>
+                        <div class="navbar-dropdown">
+                            <div class="navbar-box">
+                                <div class="box-full">
+                                    <div class="box clearfix">
+                                        <div class="row">
+                                            <div class="clearfix">
+                                                <div class="col-lg-3">
+                                                    <ul>
+                                                        <li class="label"><i class="icon icon-star"></i> Computers</li>
+                                                        <li><a href="#">Laptops</a></li>
+                                                        <li><a href="#">Desktops</a></li>
+                                                        <li><a href="#">PC Gaming</a></li>
+                                                        <li><a href="#">Printers & Supplies</a></li>
+                                                        <li class="more"><a href="#"><i class="icon icon-chevron-right"></i> More</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <ul>
+                                                        <li class="label"><i class="icon icon-star"></i> Vacuums</li>
+                                                        <li><a href="#">Upright Vacuums</a></li>
+                                                        <li><a href="#">Stick Vacuums</a></li>
+                                                        <li><a href="#">Robotic Vacuums</a></li>
+                                                        <li><a href="#">Handheld Vacuums</a></li>
+                                                        <li class="more"><a href="#"><i class="icon icon-chevron-right"></i> More</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <ul>
+                                                        <li class="label"><i class="icon icon-star"></i> Refrigerators</li>
+                                                        <li><a href="#">Mini Fridges</a></li>
+                                                        <li><a href="#">Kegerators</a></li>
+                                                        <li><a href="#">Beverage Refrigerators</a></li>
+                                                        <li><a href="#">Wine Refrigerators</a></li>
+                                                        <li class="more"><a href="#"><i class="icon icon-chevron-right"></i> More</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <ul>
+                                                        <li class="label"><i class="icon icon-star"></i> Appliances & Accessories</li>
+                                                        <li><a href="#">Dishwasher Parts</a></li>
+                                                        <li><a href="#">Oven & Ranges Parts</a></li>
+                                                        <li><a href="#">Refrigerator & Freezer Parts</a></li>
+                                                        <li><a href="#">Washer & Dryer Parts</a></li>
+                                                        <li class="more"><a href="#"><i class="icon icon-chevron-right"></i> More</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix">
+                                                <div class="col-lg-3">
+                                                    <ul>
+                                                        <li class="label"><i class="icon icon-star"></i> Freezers</li>
+                                                        <li><a href="#">Mini Freezers</a></li>
+                                                        <li><a href="#">Ice Makers</a></li>
+                                                        <li><a href="#">Chest Freezers</a></li>
+                                                        <li><a href="#">Upright Freezers</a></li>
+                                                        <li class="more"><a href="#"><i class="icon icon-chevron-right"></i> More</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <ul>
+                                                        <li class="label"><i class="icon icon-star"></i> TV & Video</li>
+                                                        <li><a href="#">TVs</a></li>
+                                                        <li><a href="#">DVD & Blu-ray Players</a></li>
+                                                        <li><a href="#">Home Audio & Theater</a></li>
+                                                        <li><a href="#">TVs Accessories</a></li>
+                                                        <li class="more"><a href="#"><i class="icon icon-chevron-right"></i> More</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <ul>
+                                                        <li class="label"><i class="icon icon-star"></i> Cell phones</li>
+                                                        <li><a href="#">Straight Talk Phones</a></li>
+                                                        <li><a href="#">Unlocked Phones</a></li>
+                                                        <li><a href="#">Contract Phones</a></li>
+                                                        <li><a href="#">No-Contract Phones</a></li>
+                                                        <li class="more"><a href="#"><i class="icon icon-chevron-right"></i> More</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <ul>
+                                                        <li class="label"><i class="icon icon-star"></i> iPad & Tablets</li>
+                                                        <li><a href="#">iPad</a></li>
+                                                        <li><a href="#">Windows Tablets</a></li>
+                                                        <li><a href="#">Android Tablets</a></li>
+                                                        <li><a href="#">Accessories</a></li>
+                                                        <li class="more"><a href="#"><i class="icon icon-chevron-right"></i> More</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+
+                    <!-------SÜPER MARKET NAVBAR------->
+                    <li><a href="shortcodes.html">Süper Market</a></li>
+                    <li class="nav-settings">
+                        <a href="javascript:void(0);"><span class="nav-settings-value">TL</span> <span class="open-dropdown"><i class="fa fa-angle-down"></i></span></a>
+                        <div class="navbar-dropdown navbar-dropdown-single">
+                            <div class="navbar-box">
+                                <div class="box-full">
+                                    <div class="box clearfix">
+                                        <ul class="nav-settings-list">
+                                            <li><a href="javascript:void(0);">TL</a></li>
+                                            <li><a href="javascript:void(0);">USD</a></li>
+                                            <li><a href="javascript:void(0);">EUR</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+
+
+                    <!-------DİL SEÇİM NAVBAR------->
+                    <li class="nav-settings">
+                        <a href="javascript:void(0);"><span class="nav-settings-value">TR</span> <span class="open-dropdown"><i class="fa fa-angle-down"></i></span></a>
+                        <div class="navbar-dropdown navbar-dropdown-single">
+                            <div class="navbar-box">
+                                <div class="box-full">
+                                    <div class="box clearfix">
+                                        <ul class="nav-settings-list">
+                                            <li><a href="javascript:void(0);">TR</a></li>
+                                            <li><a href="javascript:void(0);">ENG</a></li>
+                                            <li><a href="javascript:void(0);">لعربية</a></li>
+                                            <li><a href="javascript:void(0);">עִבְרִית</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ==========  ARAMA ========== -->
+
+        <div class="search-wrapper">
+            <input class="form-control" placeholder="Search..." />
+            <button class="btn btn-main">Ara!</button>
+        </div>
+
+        <!-- ==========  GİRİŞ ========== -->
+
+        <div class="login-wrapper">
+            <div class="h4">Üye Girişi</div>
+            <form asp-controller ="Kullanici" asp-action="KullaniciBilgi" method="get">
+                <div class="form-group">
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email Adresi">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Şifre">
+                </div>
+                <div class="form-group">
+                    <a asp-controller="Kullanici" asp-action="HesapOlustur" class="open-popup">Şifremi unuttum</a>
+                    <a asp-controller="Kullanici" asp-action="HesapOlustur" class="open-popup">Hesap Oluştur</a>
+                    <a asp-controller="Kullanici" asp-action="UyeOl" class="open-popup">Adres Bilgileri</a>
+                </div>
+                <button type="submit"  class="btn btn-block btn-main">Giriş Yap</button>
+            </form>
+        </div>
+
+        <!-- ==========  KART WRAPPER ========== -->
+
+        <div class="cart-wrapper">
+            <div class="checkout">
+                <div class="clearfix">
+
+                    <!--SEPET EKRANI-->
+
+                    <div class="row">
+
+                        <div class="cart-block cart-block-item clearfix">
+                            <div class="image">
+                                <a href="product.html"><img src="assets/images/product-1.png" alt="" /></a>
+                            </div>
+                            <div class="title">
+                                <div><a href="product.html">Nike Airmax</a></div>
+                                <small>Spor Ayakkabı</small>
+                            </div>
+                            <div class="quantity">
+                                <input type="number" value="2" class="form-control form-quantity" />
+                            </div>
+                            <div class="price">
+                                <span class="final">2999 TL</span>
+                                <span class="discount">3999 TL</span>
+                            </div>
+                            <!--delete-this-item-->
+                            <span class="icon icon-cross icon-delete"></span>
+                        </div>
+
+                        <!--cart item-->
+
+                        <div class="cart-block cart-block-item clearfix">
+                            <div class="image">
+                                <a href="product.html"><img src="assets/images/product-2.png" alt="" /></a>
+                            </div>
+                            <div class="title">
+                                <div><a href="product.html">Apple Watch 8</a></div>
+                                <small>Giyilebilir Teknoloji</small>
+                            </div>
+                            <div class="quantity">
+                                <input type="number" value="2" class="form-control form-quantity" />
+                            </div>
+                            <div class="price">
+                                <span class="final">799 TL</span>
+                                <span class="discount">11.999 TL</span>
+                            </div>
+                            <!--delete-this-item-->
+                            <span class="icon icon-cross icon-delete"></span>
+                        </div>
+
+                        <!--cart item-->
+
+                        <div class="cart-block cart-block-item clearfix">
+                            <div class="image">
+                                <a href="product.html"><img src="assets/images/product-3.png" alt="" /></a>
+                            </div>
+                            <div class="title">
+                                <div><a href="product.html">Samsung 4K Oled Tv</a></div>
+                                <small>Elektronik</small>
+                            </div>
+                            <div class="quantity">
+                                <input type="number" value="2" class="form-control form-quantity" />
+                            </div>
+                            <div class="price">
+                                <span class="final">18.999 TL</span>
+                                <span class="discount">25.999 TL</span>
+                            </div>
+                            <!--delete-this-item-->
+                            <span class="icon icon-cross icon-delete"></span>
+                        </div>
+
+                        <!--cart item-->
+
+                        <div class="cart-block cart-block-item clearfix">
+                            <div class="image">
+                                <a href="product.html"><img src="assets/images/product-4.png" alt="" /></a>
+                            </div>
+                            <div class="title">
+                                <div><a href="product.html">DJI Mavig mini 3</a></div>
+                                <small>Hobi Elektroniği</small>
+                            </div>
+                            <div class="quantity">
+                                <input type="number" value="2" class="form-control form-quantity" />
+                            </div>
+                            <div class="price">
+                                <span class="final">21.999 TL</span>
+                                <span class="discount">29.999 TL</span>
+                            </div>
+                            <!--delete-this-item-->
+                            <span class="icon icon-cross icon-delete"></span>
+                        </div>
+                    </div>
+                    <hr />
+
+                    <!--SEPETTEKİLER -->
+
+                    <div class="clearfix">
+                        <div class="cart-block cart-block-footer clearfix">
+                            <div>
+                                <strong>%15 İndirim</strong>
+                            </div>
+                            <div>
+                                <span>7.000TL</span>
+                            </div>
+                        </div>
+
+                        <div class="cart-block cart-block-footer clearfix">
+                            <div>
+                                <strong>Kargo</strong>
+                            </div>
+                            <div>
+                                <span>30 TL</span>
+                            </div>
+                        </div>
+
+                        <div class="cart-block cart-block-footer clearfix">
+                            <div>
+                                <strong>Vergi</strong>
+                            </div>
+                            <div>
+                                <span>25.999 TL</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr />
+
+                    <!--SON FİYAT -->
+
+                    <div class="clearfix">
+                        <div class="cart-block cart-block-footer clearfix">
+                            <div>
+                                <strong>Toplam</strong>
+                            </div>
+                            <div>
+                                <div class="h4 title">95.000 TL</div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!--DİĞER BUTONLAR -->
+
+                    <div class="cart-block-buttons clearfix">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <a href="products-grid.html" class="btn btn-clean-dark">Alışverişe Devam Et</a>
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <a href="checkout-1.html" class="btn btn-main"><span class="icon icon-cart"></span> Ödeme Sayfasına Git</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

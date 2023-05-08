@@ -1,0 +1,239 @@
+﻿@*Burada Üyelik işlemlerini yapacağımız sayfayı oluşturuyoruz. Entity framework Core dan Yararlanarak Kişinin sisteme Kayıt olup aynı zamanda sql server'a Kayıt İşlemlerini Yapacağız...
+  Sonrasında Adres ekleme gibi Ekranları bu sayfaya tekrardan ekleyeceğiz...*@
+@model ECommerceWithMVC.Models.ViewModel.KullaniciVeAdresViewModel
+
+
+<body>
+
+    <!-- ===form Üzerinden veri alma Yöntemini Kullanacağız o yüzden burada Controller  action ve method tanımlaması yapıyoruz... === -->
+    <!-- ========================  Ana Başlık Bölümü ======================== -->
+
+    <section class="main-header" style="background-image:url(assets/images/gallery-2.jpg)">
+        <header>
+            <div class="container text-center">
+                <h2 class="h2 title">Adres Bilgileri</h2>
+
+
+
+
+                <ol class="breadcrumb breadcrumb-inverted">
+                    <li><a asp-controller="Home" asp-action="Anasayfa"><span class="icon icon-home"></span></a></li>
+                    <li><a class="active" asp-controller="Home" asp-action="Login">Giriş Yap & Üye Ol</a></li>
+                </ol>
+            </div>
+        </header>
+    </section>
+
+    <!-- ========================  Giriş Yap & Üye Ol ======================== -->
+
+
+
+    <section class="login-wrapper login-wrapper-page">
+        <div class="container">
+
+            <header class="hidden">
+                <h3 class="h3 title">Üye Ol</h3>
+            </header>
+
+            <div class="row">
+
+                <!-- === left content === -->
+
+                <div class="col-md-6 col-md-offset-3">
+
+                    <!-- === login-wrapper === -->
+
+                    <div class="login-wrapper">
+
+                        <div class="white-block">
+
+                            
+
+                                    <!--Bilgilendirme-->
+                                    @if (TempData["GuncellemeBasarili"] != null)
+                                    {
+                                        <div class="alert alert-success"><strong>BİLGİ: </strong>@TempData["GuncellemeBasarili"] </div>
+                                    }
+                                    @if (TempData["information"] != null)
+                                    {
+                                        <div class="alert alert-success"><strong>BİLGİ: </strong>@TempData["information"] </div>
+                                    }
+                                    @if (Model.Adresbasligi == null)
+                                    {
+                                <form asp-controller="Kullanici" asp-action="AdresBilgiEkle" method="post">
+
+                                    <div class="login-block login-block-signup">
+
+                                        <div class="h4">Adres Bilgileri </div>
+                                        <div class="row">
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <input type="text" asp-for="Ad" class="form-control" placeholder="Ad">
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <input type="text" asp-for="Soyad" class="form-control" placeholder="Soyad">
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="login-block login-block-signup">
+                                        <div class="row">
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <input type="text" asp-for=Adresbasligi class="form-control" placeholder="Adresbasligi">
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <input type="text" asp-for=Il class="form-control" placeholder="Il">
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <input type="text" asp-for="Ilce" class="form-control" placeholder="Ilce">
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <input type="text" asp-for="Mahalle" class="form-control" placeholder="Mahalle">
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <input type="text" asp-for="AdresGenel" class="form-control" placeholder="Genel Adres">
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <input type="text" asp-for="TelNo" class="form-control" placeholder="Telefon Numarası">
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="fa-font-awesome">
+
+                                                    Lütfen Güncelleme İşleminden Önce
+                                                    Tüm Bilgilerin Eksiksiz Olduğundan Emin Olunuz...
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+
+                                                <button class="btn btn-main btn-block">Adres Ekle</button>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </form>
+
+                                    }
+                            <form asp-controller="Kullanici" asp-action="AdresBilgi" method="post">
+
+                                <div class="login-block login-block-signup">
+
+                                    <div class="h4">Adres Bilgileri </div>
+                                    <div class="row">
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="text" asp-for="Ad" class="form-control" placeholder="Ad">
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="text" asp-for="Soyad" class="form-control" placeholder="Soyad">
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="login-block login-block-signup">
+                                    <div class="row">
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="text" asp-for=Adresbasligi class="form-control" placeholder="Adresbasligi">
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="text" asp-for=Il class="form-control" placeholder="Il">
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <input type="text" asp-for="Ilce" class="form-control" placeholder="Ilce">
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <input type="text" asp-for="Mahalle" class="form-control" placeholder="Mahalle">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <input type="text" asp-for="AdresGenel" class="form-control" placeholder="Genel Adres">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <input type="text" asp-for="TelNo" class="form-control" placeholder="Telefon Numarası">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="fa-font-awesome">
+
+                                                Lütfen Güncelleme İşleminden Önce
+                                                Tüm Bilgilerin Eksiksiz Olduğundan Emin Olunuz...
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+
+                                            <button class="btn btn-main btn-block">Güncelle</button>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div> <!--/login-wrapper-->
+                </div> <!--/col-md-6-->
+
+            </div>
+
+        </div>
+
+    </section>
+
+</body>

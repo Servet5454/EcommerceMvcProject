@@ -1,0 +1,70 @@
+﻿@*Burada Üyelik işlemlerini yapacağımız sayfayı oluşturuyoruz. Entity framework Core dan Yararlanarak Kişinin sisteme Kayıt olup aynı zamanda sql server'a Kayıt İşlemlerini Yapacağız...
+  Sonrasında Adres ekleme gibi Ekranları bu sayfaya tekrardan ekleyeceğiz...*@
+@model ECommerceWithMVC.Models.Entities.Kullanici
+
+
+<body>
+
+    <!-- ===form Üzerinden veri alma Yöntemini Kullanacağız o yüzden burada Controller  action ve method tanımlaması yapıyoruz... === -->
+    <!-- ========================  Ana Başlık Bölümü ======================== -->
+    <!-- ========================  Giriş Yap & Üye Ol ======================== -->
+
+
+
+    <section class="login-wrapper login-wrapper-page">
+        <div class="container">
+
+            <header class="hidden">
+                <h3 class="h3 title">Üye Ol</h3>
+            </header>
+
+            <div class="row">
+
+                <!-- === left content === -->
+
+                <div class="col-md-6 col-md-offset-3">
+
+                    <!-- === login-wrapper === -->
+
+                    <div class="login-wrapper">
+
+                        <div class="white-block">
+
+                            <div class="login-block login-block-signup">
+                                <div class="h4">Hesap Bilgileri </div>
+                                <!--Bilgilendirme-->
+                                <form asp-controller="Kullanici" asp-action="loggg" method="post">
+                                    <div class="row">
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="text" asp-for="Ad" class="form-control" placeholder="Ad">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="text" asp-for="Soyad" class="form-control" placeholder="Soyad">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+
+                                            <button class="btn btn-main btn-block">Güncelle</button>
+
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div> <!--/login-wrapper-->
+                </div> <!--/col-md-6-->
+
+            </div>
+
+        </div>
+
+    </section>
+
+</body>

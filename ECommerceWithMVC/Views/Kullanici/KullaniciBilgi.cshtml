@@ -1,0 +1,102 @@
+﻿@*Burada Üyelik işlemlerini yapacağımız sayfayı oluşturuyoruz. Entity framework Core dan Yararlanarak Kişinin sisteme Kayıt olup aynı zamanda sql server'a Kayıt İşlemlerini Yapacağız...
+  Sonrasında Adres ekleme gibi Ekranları bu sayfaya tekrardan ekleyeceğiz...*@
+
+@model List<ECommerceWithMVC.Models.Entities.KullaniciAdres>
+<body>
+
+    <!-- ===form Üzerinden veri alma Yöntemini Kullanacağız o yüzden burada Controller  action ve method tanımlaması yapıyoruz... === -->
+    <!-- ========================  Ana Başlık Bölümü ======================== -->
+
+    <section class="main-header" style="background-image:url(assets/images/gallery-2.jpg)">
+        <header>
+            <div class="container text-center">
+                <h2 class="h2 title">Adres Bilgileri</h2>
+                <ol class="breadcrumb breadcrumb-inverted">
+                    <li><a asp-controller="Home" asp-action="Anasayfa"><span class="icon icon-home"></span></a></li>
+                    <li><a class="active" asp-controller="Home" asp-action="Login">Giriş Yap & Üye Ol</a></li>
+                </ol>
+            </div>
+        </header>
+    </section>
+
+    <!-- ========================  Giriş Yap & Üye Ol ======================== -->
+
+
+
+    <section class="login-wrapper login-wrapper-page">
+        <div class="container">
+
+
+            <div class="row">
+
+                <!-- === left content === -->
+
+                <div class="col-md-6 col-md-offset-3">
+
+                    <!-- === login-wrapper === -->
+
+                    <div class="login-wrapper">
+
+                        <div class="white-block">
+
+
+                            <div class="login-block login-block-signup">
+                                <!--Bilgilendirme-->
+                                <!--Bilgilendirme-->
+
+                                <div class="h4">Kullanıcı Bilgileri </div>
+
+
+                                @if (TempData["GuncellemeMessaage"] != null)
+                                {
+                                    <div class="alert alert-success"><strong>BİLGİ: </strong>@TempData["GuncellemeMessaage"] </div>
+                                }
+                                <br />
+                                <div class="row">
+                                    @if (Model.Count == 0)
+                                    {
+                                        <form asp-controller="Kullanici" asp-action="AdresBilgi" method="get">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Kayıtlı Adresiniz Yok">
+
+                                                    <br />
+                                                    <button class="btn btn-main btn-block">Yeni Adres Ekle</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    }
+                                    @if(Model.Count > 0)
+                                    {
+                                        @foreach (var item in Model)
+                                        {
+                                            <form asp-controller="Kullanici" asp-action="AdresBilgi" method="get">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <input type="text" asp-for="@item.Adresbasligi" class="form-control" placeholder="Adres Başlığı">
+
+                                                        <br />
+                                                        <button class="btn btn-main btn-block">@item.Adresbasligi Bilgilerini Görüntüle</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        }
+                                    }
+
+                                    
+                                                                                                                 
+                                    <br />
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!--/login-wrapper-->
+                </div> <!--/col-md-6-->
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+</body>

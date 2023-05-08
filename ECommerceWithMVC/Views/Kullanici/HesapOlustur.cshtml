@@ -1,0 +1,170 @@
+﻿@*Burada Üyelik işlemlerini yapacağımız sayfayı oluşturuyoruz. Entity framework Core dan Yararlanarak Kişinin sisteme Kayıt olup aynı zamanda sql server'a Kayıt İşlemlerini Yapacağız...
+  Sonrasında Adres ekleme gibi Ekranları bu sayfaya tekrardan ekleyeceğiz...*@
+@model ECommerceWithMVC.Models.ViewModel.KullaniciVeAdresViewModel
+<body>
+
+    <!-- ===form Üzerinden veri alma Yöntemini Kullanacağız o yüzden burada Controller  action ve method tanımlaması yapıyoruz... === -->
+    <!-- ========================  Ana Başlık Bölümü ======================== -->
+
+    <section class="main-header" style="background-image:url(assets/images/gallery-2.jpg)">
+        <header>
+            <div class="container text-center">
+                <h2 class="h2 title">Hesap Bilgileriniz</h2>
+                <ol class="breadcrumb breadcrumb-inverted">
+                    <li><a asp-controller="Home" asp-action="Anasayfa"><span class="icon icon-home"></span></a></li>
+                    <li><a class="active" asp-controller="Home" asp-action="Login">Giriş Yap & Üye Ol</a></li>
+                </ol>
+            </div>
+        </header>
+    </section>
+
+    <!-- ========================  Giriş Yap & Üye Ol ======================== -->
+
+
+
+    <section class="login-wrapper login-wrapper-page">
+        <div class="container">
+
+            <header class="hidden">
+                <h3 class="h3 title">Giriş Yap</h3>
+            </header>
+
+            <div class="row">
+
+                <!-- === left content === -->
+
+                <div class="col-md-6 col-md-offset-3">
+
+                    <!-- === login-wrapper === -->
+
+                    <div class="login-wrapper">
+
+                        <div class="white-block">
+
+                            <!--signin-->
+
+
+
+                            <form asp-controller="Kullanici" asp-action="GirisYap" method="post">
+
+                                <!--Bilgilendirme-->
+                                @if (@TempData["AlertMessage"] != null)
+                                {
+                                    <div class="alert alert-success"><strong>BİLGİ: </strong>@TempData["AlertMessage"] </div>
+                                }
+
+                                <div class="login-block login-block-signin">
+
+                                    <div class="h4">Giriş Yap<a href="javascript:void(0);" class="btn btn-main btn-xs btn-register pull-right">Hesap Oluştur</a></div>
+
+                                    <hr />
+
+                                    <div class="row">
+
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <input type="email" asp-for="Email" class="form-control" placeholder="Email Adresi">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <input type="password" asp-for="Sifre1" class="form-control" placeholder="Şifre">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-6">
+                                            <span class="checkbox">
+                                                <input type="checkbox" id="checkBoxId3">
+                                                <label for="checkBoxId3">Beni Hatırla</label>
+                                            </span>
+                                        </div>
+
+                                        <div class="col-xs-6 text-right">
+                                            <button class="btn btn-main"> giriş yap</button>
+                                        </div>
+                                    </div>
+                                </div> <!--/signin-->
+                                <!--signup-->
+
+                            </form>
+
+
+                            <form asp-controller="Kullanici" asp-action="HesapOlustur" method="post">
+
+                                <div class="login-block login-block-signup">
+
+                                    <div class="h4">Şimdi Üye Ol <a href="javascript:void(0);" class="btn btn-main btn-xs btn-login pull-right">Giriş Yap</a></div>
+
+                                    <hr />
+
+                                    <div class="row">
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="text" asp-for=Ad class="form-control" placeholder="İsim">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="text" asp-for=Soyad class="form-control" placeholder="Soyisim">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <input type="password" asp-for="Sifre1" class="form-control" placeholder="Şifre">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <input type="password" asp-for="Sifre2" class="form-control" placeholder="Şifre Tekrarı">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="text" asp-for="Email" class="form-control" placeholder="Email Adresi">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="text" asp-for="TelNo" class="form-control" placeholder="Telefon Numarası">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-md-12">
+                                            <hr />
+                                            <span class="checkbox">
+                                                <input type="checkbox" id="checkBoxId1">
+                                                <label for="checkBoxId1">Anlaşma Metnini Okudum Kabul Ediyorum <a href="#">Anlaşma Metnini</a> </label>
+                                            </span>
+                                            <span class="checkbox">
+                                                <input type="checkbox" id="checkBoxId2">
+                                                <label for="checkBoxId2">Üyelik şartlarını kabul ediyorum</label>
+                                            </span>
+                                            <hr />
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <button>Hesap Oluştur</button>
+                                        </div>
+
+                                    </div>
+
+                                </div> <!--/signup-->
+                            </form>
+                        </div>
+                    </div> <!--/login-wrapper-->
+                </div> <!--/col-md-6-->
+
+            </div>
+
+        </div>
+
+    </section>
+
+</body>
